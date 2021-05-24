@@ -5,30 +5,42 @@
       let data = fetch(URL)
       .then(res=>res.json()
       .then(val=>{
-          let covidData = val.statewise
-          console.log(covidData)
+          let covid = val.statewise
+          covid.splice(31,1)
+          console.log()
           
           const container = document.getElementById('container');
 
           
-          covidData.forEach((result, idx) => {
+          covid.forEach((result, idx) => {
+              let Confirmed = result.confirmed
+              let Active = result.active
+              let Recovered = result.recovered
+              let Deaths = result.deaths
+              let time = result.lastupdatedtime
+              let State = result.state
+              let todayconfirm = result.deltaconfirmed
+              let todayrecovered = result.deltarecovered
+              let todayDeaths = result.deltadeaths
+              let recPercent =Math.round((Recovered/Confirmed)*100)
+              console.log(recPercent)
+              
               const card = document.createElement('div');
               card.classList = 'card-body';
           const content = `
-         <div id="card-${idx}" class=" card text-center">
+         <div id="card-${idx}" class="card text-white mb-3">
              <div class="card-header">
-                 <h5 class="state" >${result.state=="Total"?"India":result.state}</h5>
+                 <h5 class="state" >${State=="Total"?"India":State}</h5>
              </div>
-             <div class="card-body">
              <ul class="list-group list-group-flush text-start">
-                <li class="list-group-item">Confirmed Cases : ${result.confirmed} <span class="badge rounded-pill bg-danger today">${result.deltaconfirmed==0?"":result.deltaconfirmed}</span></li>
-                <li class="list-group-item">Active Cases : ${result.active}</span></li>
-                <li class="list-group-item">Recovered Cases : ${result.recovered} <span class="badge rounded-pill bg-success today">${result.deltarecovered==0?"":result.deltarecovered}</span></li>
-                <li class="list-group-item">Deaths Cases : ${result.deaths} <span class="badge rounded-pill bg-info today">${result.deltadeaths==0?"":result.deltadeaths}</span></li>
-
+                <li class="list-group-item">Confirmed Cases : ${Confirmed} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
+                <li class="list-group-item">Active Cases : ${Active}</li>
+                <li class="list-group-item">Recovered Cases : ${Recovered} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
+                <li class="list-group-item">Deaths Cases : ${Deaths} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
-              </div>
-             <div class="card-footer text-muted">Last Update: ${result.lastupdatedtime}</div>
+            
+              
+             <div class="card-footer text-muted">Last Update: ${time}</div>
          </div>
           `;
           container.innerHTML += content;
