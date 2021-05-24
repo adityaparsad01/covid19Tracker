@@ -21,10 +21,10 @@
              </div>
              <div class="card-body">
              <ul class="list-group list-group-flush text-start">
-                <li class="list-group-item"><span class="">Confirmed Cases :</span> ${result.confirmed} <span class="badge rounded-pill ${result.deltaconfirmed>=900 ?"bg-danger":"bg-success"}">${Math.round(result.deltaconfirmed/1000)} K</span></li>
-                <li class="list-group-item">Active Cases : ${result.active}</li>
-                <li class="list-group-item">Recovered Cases : ${result.recovered}</li>
-                <li class="list-group-item">Deaths Cases : ${result.deaths}</li>
+                <li class="list-group-item"><span class="">Confirmed Cases :</span> ${result.confirmed} <span class="badge rounded-pill ${result.deltaconfirmed>=900 ?"bg-danger":"bg-success"}">+${result.deltaconfirmed}</span></li>
+                <li class="list-group-item"><span class="">Active Cases : ${result.active}</span>} <span class="badge rounded-pill ${result.deltaconfirmed>=900 ?"bg-danger":"bg-success"}">+${result.deltaconfirmed}</span></li>
+                <li class="list-group-item">Recovered Cases : ${result.recovered}} <span class="badge rounded-pill ${result.deltaconfirmed>=900 ?"bg-danger":"bg-success"}">+${result.deltarecovered}</span></li>
+                <li class="list-group-item">Deaths Cases : ${result.deaths}} <span class="badge rounded-pill ${result.deltaconfirmed>=900 ?"bg-danger":"bg-success"}">+${result.deltadeaths}</span></li>
 
               </ul>
               </div>
