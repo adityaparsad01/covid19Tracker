@@ -24,8 +24,7 @@
             </div>
           `
           footer.innerHTML = footerContent;
-
-          
+            
           covid.forEach((result, idx) => {
               let Confirmed = result.confirmed
               let Active = result.active
@@ -59,8 +58,6 @@
                 <li class="list-group-item">Recovered Cases : ${Recovered} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
                 <li class="list-group-item">Deaths Cases : ${Deaths} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
-            
-              
              <div class="card-footer text-muted">Last Update: ${time}</div>
          </div>
           `;
