@@ -27,4 +27,8 @@ body {
 .today{
     font-size: 7px;
 }
-        
+.graph{
+    color: blue;
+    font-weight: bold;
+    font-size: 30px;
+}

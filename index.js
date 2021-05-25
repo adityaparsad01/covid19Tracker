@@ -10,6 +10,20 @@
           console.log()
           
           const container = document.getElementById('container');
+          const footer = document.getElementById('footer');
+          console.log()
+          const footerContent =`
+            <div class="container text-center bg-info p-1">
+                <div  class="row">
+                    <div id="" class="col">
+                        <h3>Developer Info</h3>
+                    </div>
+                <div class="row">
+                    <h5><i class="bi-github m-2" role="img" aria-label="GitHub"></i><i class="bi bi-twitter m-2"></i><i class="bi bi-cloud m-2"></i></h5>
+                </div>
+            </div>
+          `
+          footer.innerHTML = footerContent;
 
           
           covid.forEach((result, idx) => {
@@ -23,14 +37,21 @@
               let todayrecovered = result.deltarecovered
               let todayDeaths = result.deltadeaths
               let recPercent =Math.round((Recovered/Confirmed)*100)
-              console.log(recPercent)
+              console.log()
               
               const card = document.createElement('div');
               card.classList = 'card-body';
+              
+              const loading = `
+          <div>
+          <h5>Loading...</h5>
+          </div>
+          `
+              
           const content = `
          <div id="card-${idx}" class="card text-white mb-3">
              <div class="card-header">
-                 <h5 class="state" >${State=="Total"?"India":State}</h5>
+                 <h5 class="state" >${State=="Total"?"India":State}<i class="graph bi bi-graph-up m-3"></i></h5>
              </div>
              <ul class="list-group list-group-flush text-start">
                 <li class="list-group-item">Confirmed Cases : ${Confirmed} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
@@ -43,7 +64,7 @@
              <div class="card-footer text-muted">Last Update: ${time}</div>
          </div>
           `;
-          container.innerHTML += content;
+          container.innerHTML += `${Confirmed>1?content:loading}`;
           })
       
       })).catch(err=>console.log(err))
