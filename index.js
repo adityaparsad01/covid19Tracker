@@ -8,7 +8,7 @@
           covid.splice(31,1)
           console.log()
           
-          const container = document.getElementById('container');
+          const container = document.getElementById('main');
           const footer = document.getElementById('footer');
           console.log()
           const footerContent =`
