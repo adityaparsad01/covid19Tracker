@@ -8,11 +8,11 @@
           covid.splice(31,1)
           console.log()
           
-          const container = document.getElementById('main');
+          const container = document.getElementById('row');
           const footer = document.getElementById('footer');
           console.log()
           const footerContent =`
-            <div class="container text-center bg-info p-1">
+            <div class="container-fluid text-center bg-info p-1">
                 <div  class="row">
                     <div id="" class="col">
                         <h3>Developer Info</h3>
