@@ -1,8 +1,7 @@
 
       let URL ="https://api.covid19india.org/data.json"
-      
-      
-      let data = fetch(URL)
+   
+     let data = fetch(URL)
       .then(res=>res.json()
       .then(val=>{
           let covid = val.statewise
@@ -25,7 +24,7 @@
           `
           footer.innerHTML = footerContent;
             
-          covid.forEach((result, idx) => {
+          covid.map((result, idx) => {
               let Confirmed = result.confirmed
               let Active = result.active
               let Recovered = result.recovered
@@ -35,7 +34,7 @@
               let todayconfirm = result.deltaconfirmed
               let todayrecovered = result.deltarecovered
               let todayDeaths = result.deltadeaths
-              let recPercent =Math.round((Recovered/Confirmed)*100)
+              let recPercent =((Recovered/Confirmed)*100).toFixed(2)
               console.log()
               
               const card = document.createElement('div');
@@ -46,9 +45,10 @@
           <h5>Loading...</h5>
           </div>
           `
-              
+      
+           
           const content = `
-         <div id="card-${idx}" class="card text-white mb-3">
+         <div id="card-${idx}" class="cardC card text-white mb-3">
              <div class="card-header">
                  <h5 class="state" >${State=="Total"?"India":State}<i class="graph bi bi-graph-up m-3"></i></h5>
              </div>
@@ -58,8 +58,20 @@
                 <li class="list-group-item">Recovered Cases : ${Recovered} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
                 <li class="list-group-item">Deaths Cases : ${Deaths} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
+             
+                
+              <button class="btn btn-info my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
+
+              <div class="collapse mb-2" id="collapseExample${idx}">
+                <div class="card card-body">
+                    <div class="row">
+                        <h2 class="fs-5 moreinfo" >Recovery Rate of ${State=="Total"?"India":State} is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}</span> which is ${recPercent>90?"Very Good":"Good"}</h2>
+                    </div>
+                </div>
+             </div>
+              
              <div class="card-footer text-muted">Last Update: ${time}</div>
-         </div>
+             </div>
           `;
           container.innerHTML += `${Confirmed>1?content:loading}`;
           })

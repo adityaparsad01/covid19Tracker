@@ -6,7 +6,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weigbodyht: bold;
 }
-.card {
+.cardC {
             padding: 1rem;
             border: 1px solid black;
             margin: 1rem;
@@ -31,4 +31,14 @@ body {
     color: blue;
     font-weight: bold;
     font-size: 30px;
+}
+.moreinfo{
+    color: black;
+}
+
+.rateL{
+    color: red;
+}
+.rateH{
+    color: green;
 }
