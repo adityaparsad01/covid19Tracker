@@ -67,7 +67,7 @@
               <div class="collapse mb-2" id="collapseExample${idx}">
                 <div class="card card-body">
                     <div class="row">
-                        <h2 class="fs-5 moreinfo" >${State=="Total"?"India":State} Today Recovery Rate is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good News.":"its required more improvement."}</h2>
+                        <h2 class="fs-5 moreinfo" >Today Recovery rate of ${State=="Total"?"India":State} is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate, Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good.":"its required more improvement."}</h2>
                     </div>
                 </div>
              </div>
