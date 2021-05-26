@@ -35,7 +35,9 @@
               let todayrecovered = result.deltarecovered
               let todayDeaths = result.deltadeaths
               let recPercent =((Recovered/Confirmed)*100).toFixed(2)
-              console.log()
+              let todayRecPer= ((todayrecovered/todayconfirm)*100).toFixed(2)
+              let recDiff = (recPercent-todayRecPer)
+              //console.log(recDiff)
               
               const card = document.createElement('div');
               card.classList = 'card-body';
@@ -65,7 +67,7 @@
               <div class="collapse mb-2" id="collapseExample${idx}">
                 <div class="card card-body">
                     <div class="row">
-                        <h2 class="fs-5 moreinfo" >Recovery Rate of ${State=="Total"?"India":State} is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}</span> which is ${recPercent>90?"Very Good":"Good"}</h2>
+                        <h2 class="fs-5 moreinfo" >${State=="Total"?"India":State} Today Recovery Rate is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good News.":"its required more improvement."}</h2>
                     </div>
                 </div>
              </div>
