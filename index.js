@@ -94,10 +94,10 @@
                         ${todayRecPer=="NaN"?"":tradeLogo}
                 </div>
              <ul class="list-group list-group-flush text-start">
-                <li class="list-group-item confirm">Confirmed Cases : <span class="confirm">${Confirmed.toLocaleString()}</span> <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
+                <li class="list-group-item confirm">Confirmed Cases : <span class="confirm">${Confirmed.toLocaleString()}</span> <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm.toLocaleString()}</span></li>
                 <li class="list-group-item active2">Active Cases : <span>${Active.toLocaleString()}</span></li>
-                <li class="list-group-item recovered">Recovered Cases : <span class="recovered">${Recovered.toLocaleString()}</span> <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
-                <li class="list-group-item deaths">Deaths Cases : <span class="deaths">${Deaths.toLocaleString()}</span> <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
+                <li class="list-group-item recovered">Recovered Cases : <span class="recovered">${Recovered.toLocaleString()}</span> <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered.toLocaleString()}</span></li>
+                <li class="list-group-item deaths">Deaths Cases : <span class="deaths">${Deaths.toLocaleString()}</span> <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths.toLocaleString()}</span></li>
               </ul>
               <button class="btn btn-info m-2 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
               <div class="collapse mb-2" id="collapseExample${idx}">
