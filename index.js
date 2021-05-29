@@ -6,6 +6,21 @@
       .then(val=>{
           let covid = val.statewise
           covid.splice(31,1)
+          //console.log(covid)
+          
+          //filter data
+          let filterdata  = covid.filter((item)=>{
+              if (item.state=="Total") {
+                  return true
+              }
+          })
+          //console.log(document.getElementById("search").value())
+          //console.log(filterdata)
+          function covidData(){
+              console.log(document.getElementById("search").value)
+              
+          }
+          // daily Cases
           let dailyCases = val.cases_time_series
           //console.log(dailyCases)
           
@@ -17,9 +32,16 @@
           
           
           
-          const container = document.getElementById('col');
-          const footer = document.getElementById('footer');
-          //console.log()
+          const container = document.getElementById('col')
+          const footer = document.getElementById('footer')
+          const selectValEl = document.getElementById('select')
+          //console.log(inputEl)
+          
+          
+          covid.map(({state})=>{
+             //selectValEl.innerHTML = selectVal
+          })
+          
           const footerContent =`
             <div class="container-fluid text-center bg-info p-1">
                 <div  class="row">
