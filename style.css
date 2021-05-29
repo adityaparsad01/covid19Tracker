@@ -16,7 +16,7 @@ body {
             font-size: 2rem;
             margin-left: 20px;
             font-weight: bold;
-            color:black;
+            color:blue;
             text-decoration: underline;
         }
 .state{
@@ -52,7 +52,7 @@ body {
     color:green;
 }
 .logo{
-    color: #845EC2;
+    color: gray;
     transform: scale(2);
 }
 .header{
