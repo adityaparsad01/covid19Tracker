@@ -66,13 +66,15 @@
               let todayconfirm = Number(result.deltaconfirmed)
               let todayrecovered = Number(result.deltarecovered)
               let todayDeaths = Number(result.deltadeaths)
-              let recPercent =((Recovered/Confirmed)*100).toFixed(2)
-              let todayRecPer= ((todayrecovered/todayconfirm)*100).toFixed(2)
-              let recDiff = (recPercent-todayRecPer)
-              //console.log(Confirmed.toLocaleString())
+              let recPercent =Number(((Recovered/Confirmed)*100).toFixed(2))
+              let todayRecPer= (((todayrecovered/todayconfirm)*100).toFixed(2))
+              let recDiff = Number((recPercent-todayRecPer))
+              //console.log(typeof(todayRecPer))
               let trending_down ='<i class="material-icons icon tranddown">trending_down</i>'
               let trending_up ='<i class="material-icons icon trandup">trending_up</i>'
-              
+              let statementOne = `<h2 class="fs-5 moreinfo" >Today Recovery rate of <span class="state">${State=="Total"?"India":State}</span> Till Now is <span class="rateH">${todayRecPer}%</span> Which is  ${todayRecPer>recPercent?"Better than 🙂 ":"Less than ☹️ "}Overall Recovery Rate <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> .</h2>`
+              let statementTwo = `<h2 class="fs-5 moreinfo" >Recovery Rate of <span class="state">${State=="Total"?"India":State}</span> Not Updated Yet </h2>`
+              let tradeLogo = `${todayRecPer>recPercent?trending_up:trending_down}`
               const card = document.createElement('div');
               card.classList = 'card-body';
               
@@ -85,9 +87,9 @@
            
           const content = `
          <div id="card-${idx}" class="cardC card text-white mb-3">
-             <div class="d-flex justify-content-between card-header text-center">
+             <div class="d-flex justify-content-center card-header text-center">
                  <h5 class="state" >${State=="Total"?"India":State}</h5>
-                 ${todayRecPer>recPercent?trending_up:trending_down}
+                 ${todayRecPer=="NaN"?"":tradeLogo}
              </div>
              <ul class="list-group list-group-flush text-start">
                 <li class="list-group-item">Confirmed Cases : ${Confirmed.toLocaleString()} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
@@ -100,9 +102,9 @@
               <button class="btn btn-info my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
 
               <div class="collapse mb-2" id="collapseExample${idx}">
-                <div class="card card-body">
-                    <div class="row">
-                        <h2 class="fs-5 moreinfo" >Today Recovery rate of <span class="state">${State=="Total"?"India":State}</span> is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate, Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good.":"its required more improvement."}</h2>
+                <div class="card ">
+                    <div class="text-center p-1">
+                    ${todayRecPer=="NaN"?statementTwo:statementOne}
                     </div>
                 </div>
              </div>
