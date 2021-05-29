@@ -41,13 +41,13 @@
               let Deaths = Number(result.deaths)
               let time = result.lastupdatedtime
               let State = result.state
-              let todayconfirm = result.deltaconfirmed
-              let todayrecovered = result.deltarecovered
-              let todayDeaths = result.deltadeaths
+              let todayconfirm = Number(result.deltaconfirmed)
+              let todayrecovered = Number(result.deltarecovered)
+              let todayDeaths = Number(result.deltadeaths)
               let recPercent =((Recovered/Confirmed)*100).toFixed(2)
               let todayRecPer= ((todayrecovered/todayconfirm)*100).toFixed(2)
               let recDiff = (recPercent-todayRecPer)
-              console.log(Confirmed.toLocaleString())
+              //console.log(Confirmed.toLocaleString())
               
               const card = document.createElement('div');
               card.classList = 'card-body';
@@ -90,4 +90,3 @@
       
       })
       .catch(err=>console.log(err))
-      console.log((123456).toLocaleString("en-IN"))
