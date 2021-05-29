@@ -58,3 +58,16 @@ body {
 .header{
  background-image: linear-gradient(to right, #ff9933, #cf9900, #9c9700, #659100, #138808);
 }
+
+.confirm{
+    color: red;
+}
+.active2{
+  color: blue;  
+}
+.recovered{
+    color: green;
+}
+.deaths{
+    color: gray;
+}
