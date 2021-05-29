@@ -45,3 +45,10 @@ body {
 .icon{
     color: black;
 }
+
+.tranddown{
+    color: red;
+}
+.trandup{
+    color:green;
+}

@@ -70,6 +70,8 @@
               let todayRecPer= ((todayrecovered/todayconfirm)*100).toFixed(2)
               let recDiff = (recPercent-todayRecPer)
               //console.log(Confirmed.toLocaleString())
+              let trending_down ='<i class="material-icons icon tranddown">trending_down</i>'
+              let trending_up ='<i class="material-icons icon trandup">trending_up</i>'
               
               const card = document.createElement('div');
               card.classList = 'card-body';
@@ -83,8 +85,9 @@
            
           const content = `
          <div id="card-${idx}" class="cardC card text-white mb-3">
-             <div class="card-header">
-                 <h5 class="state" >${State=="Total"?"India":State}<i class="graph bi bi-graph-up m-3"></i></h5>
+             <div class="d-flex justify-content-between card-header text-center">
+                 <h5 class="state" >${State=="Total"?"India":State}</h5>
+                 ${todayRecPer>recPercent?trending_up:trending_down}
              </div>
              <ul class="list-group list-group-flush text-start">
                 <li class="list-group-item">Confirmed Cases : ${Confirmed.toLocaleString()} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
@@ -99,7 +102,7 @@
               <div class="collapse mb-2" id="collapseExample${idx}">
                 <div class="card card-body">
                     <div class="row">
-                        <h2 class="fs-5 moreinfo" >Today Recovery rate of ${State=="Total"?"India":State} is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate, Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good.":"its required more improvement."}</h2>
+                        <h2 class="fs-5 moreinfo" >Today Recovery rate of <span class="state">${State=="Total"?"India":State}</span> is ${todayRecPer>recPercent?"Better than ":"Less than "}Overall Recovery Rate, Which is <span class="${recPercent>=95?"rateH":"rateL"}">${recPercent}%</span> ${todayRecPer>recPercent?"which is Good.":"its required more improvement."}</h2>
                     </div>
                 </div>
              </div>
