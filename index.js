@@ -48,7 +48,7 @@
                         <h3>Developer Info</h3>
                     </div>
                 </div>
-                <div class="row p-2">
+                <div class="row mb-2">
                     <div class="col d-flex justify-content-evenly">
                         <a href="https://github.com/adityaparsad01/covid19Tracker"><i class="bi-github"></i></a>
                         <a href="https://twitter.com/adityaparsad01?s=09"><i class="bi bi-twitter"></i></a>
@@ -107,7 +107,9 @@
                     </div>
                 </div>
              </div>
-             <div class="card-footer text-muted">Last Update: ${time}</div>
+             <div class="card-footer text-muted text-center">
+                <h6>Last Update: ${time}</h6>
+             </div>
         </div>
           `;
           container.innerHTML += `${Confirmed>1?content:loading}`;
