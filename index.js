@@ -32,7 +32,7 @@
           
           
           
-          const container = document.getElementById('col')
+          const container = document.getElementById('container')
           const footer = document.getElementById('footer')
           const selectValEl = document.getElementById('select')
           //console.log(inputEl)
@@ -43,15 +43,18 @@
           })
           
           const footerContent =`
-            <div class="container-fluid text-center bg-info p-1">
-                <div  class="row">
+                <div class="row">
                     <div id="" class="col">
                         <h3>Developer Info</h3>
                     </div>
-                <div class="row">
-                    <h5><i class="bi-github m-2" role="img" aria-label="GitHub"></i><i class="bi bi-twitter m-2"></i><i class="bi bi-cloud m-2"></i></h5>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col d-flex justify-content-evenly">
+                        <h5><i class="bi-github"></i></h5>
+                        <h5><i class="bi bi-twitter"></i></h5>
+                        <h5><i class="bi bi-cloud"></i></h5>
+                    </div>
+                </div>
           `
           footer.innerHTML = footerContent;
           
@@ -83,34 +86,29 @@
           <h5>Loading...</h5>
           </div>
           `
-      
            
           const content = `
-         <div id="card-${idx}" class="cardC card text-white mb-3">
-             <div class="d-flex justify-content-center card-header text-center">
-                 <h5 class="state" >${State=="Total"?"India":State}</h5>
-                 ${todayRecPer=="NaN"?"":tradeLogo}
-             </div>
+        <div id="card-${idx}" class="card text-white m-1">
+                <div class="d-flex justify-content-center card-header text-center">
+                    <h5 class="state" >${State=="Total"?"India":State}</h5>
+                        ${todayRecPer=="NaN"?"":tradeLogo}
+                </div>
              <ul class="list-group list-group-flush text-start">
                 <li class="list-group-item">Confirmed Cases : ${Confirmed.toLocaleString()} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
                 <li class="list-group-item">Active Cases : ${Active.toLocaleString()}</li>
                 <li class="list-group-item">Recovered Cases : ${Recovered.toLocaleString()} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
                 <li class="list-group-item">Deaths Cases : ${Deaths.toLocaleString()} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
-             
-                
               <button class="btn btn-info my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
-
               <div class="collapse mb-2" id="collapseExample${idx}">
-                <div class="card ">
+                <div class="card">
                     <div class="text-center p-1">
                     ${todayRecPer=="NaN"?statementTwo:statementOne}
                     </div>
                 </div>
              </div>
-              
              <div class="card-footer text-muted">Last Update: ${time}</div>
-             </div>
+        </div>
           `;
           container.innerHTML += `${Confirmed>1?content:loading}`;
           })

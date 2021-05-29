@@ -4,7 +4,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  font-weigbodyht: bold;
 }
 .cardC {
             padding: 1rem;
@@ -51,4 +50,11 @@ body {
 }
 .trandup{
     color:green;
+}
+.logo{
+    color: green;
+    transform: scale(2);
+}
+.header{
+ background-image: linear-gradient(to right, #ff9933, #ff9c7c, #ffadb9, #ffc7e7, #ffe2fe, #f0ecff, #e9f4ff, #eef9ff, #d1f9ff, #affaff, #88fbff, #5ffbf1);
 }
