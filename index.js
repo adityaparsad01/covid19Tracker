@@ -2,15 +2,24 @@
       let URL ="https://api.covid19india.org/data.json"
    
      let data = fetch(URL)
-      .then(res=>res.json()
+      .then(res=>res.json())
       .then(val=>{
           let covid = val.statewise
           covid.splice(31,1)
-          console.log()
+          let dailyCases = val.cases_time_series
+          //console.log(dailyCases)
+          
+          
+          
+          let valuesd = dailyCases.map(({date,dailyconfirmed})=>{
+              //console.log(date,dailyconfirmed)    
+          })
+          
+          
           
           const container = document.getElementById('col');
           const footer = document.getElementById('footer');
-          console.log()
+          //console.log()
           const footerContent =`
             <div class="container-fluid text-center bg-info p-1">
                 <div  class="row">
@@ -23,12 +32,13 @@
             </div>
           `
           footer.innerHTML = footerContent;
+          
             
           covid.map((result, idx) => {
-              let Confirmed = result.confirmed
-              let Active = result.active
-              let Recovered = result.recovered
-              let Deaths = result.deaths
+              let Confirmed = (Number(result.confirmed))
+              let Active = Number(result.active)
+              let Recovered = Number(result.recovered)
+              let Deaths = Number(result.deaths)
               let time = result.lastupdatedtime
               let State = result.state
               let todayconfirm = result.deltaconfirmed
@@ -37,7 +47,7 @@
               let recPercent =((Recovered/Confirmed)*100).toFixed(2)
               let todayRecPer= ((todayrecovered/todayconfirm)*100).toFixed(2)
               let recDiff = (recPercent-todayRecPer)
-              //console.log(recDiff)
+              console.log(Confirmed.toLocaleString())
               
               const card = document.createElement('div');
               card.classList = 'card-body';
@@ -55,10 +65,10 @@
                  <h5 class="state" >${State=="Total"?"India":State}<i class="graph bi bi-graph-up m-3"></i></h5>
              </div>
              <ul class="list-group list-group-flush text-start">
-                <li class="list-group-item">Confirmed Cases : ${Confirmed} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
-                <li class="list-group-item">Active Cases : ${Active}</li>
-                <li class="list-group-item">Recovered Cases : ${Recovered} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
-                <li class="list-group-item">Deaths Cases : ${Deaths} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
+                <li class="list-group-item">Confirmed Cases : ${Confirmed.toLocaleString()} <span class="badge rounded-pill bg-danger today align-top">${todayconfirm>0?"+":""}${todayconfirm==0?"":todayconfirm}</span></li>
+                <li class="list-group-item">Active Cases : ${Active.toLocaleString()}</li>
+                <li class="list-group-item">Recovered Cases : ${Recovered.toLocaleString()} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
+                <li class="list-group-item">Deaths Cases : ${Deaths.toLocaleString()} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
              
                 
@@ -78,4 +88,6 @@
           container.innerHTML += `${Confirmed>1?content:loading}`;
           })
       
-      })).catch(err=>console.log(err))
+      })
+      .catch(err=>console.log(err))
+      console.log((123456).toLocaleString("en-IN"))
