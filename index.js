@@ -99,9 +99,9 @@
                 <li class="list-group-item">Recovered Cases : ${Recovered.toLocaleString()} <span class="badge rounded-pill bg-success today align-top">${todayrecovered>0?"+":""}${todayrecovered==0?"":todayrecovered}</span></li>
                 <li class="list-group-item">Deaths Cases : ${Deaths.toLocaleString()} <span class="badge rounded-pill bg-info today align-top">${todayDeaths>0?"+":""}${todayDeaths==0?"":todayDeaths}</span></li>
               </ul>
-              <button class="btn btn-info my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
+              <button class="btn btn-info m-2 " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample${idx}" aria-expanded="false" aria-controls="collapseExample">More</button>
               <div class="collapse mb-2" id="collapseExample${idx}">
-                <div class="card">
+                <div class="card-body">
                     <div class="text-center p-1">
                     ${todayRecPer=="NaN"?statementTwo:statementOne}
                     </div>
