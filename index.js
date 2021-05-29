@@ -48,11 +48,11 @@
                         <h3>Developer Info</h3>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row p-2">
                     <div class="col d-flex justify-content-evenly">
-                        <h5><i class="bi-github"></i></h5>
-                        <h5><i class="bi bi-twitter"></i></h5>
-                        <h5><i class="bi bi-cloud"></i></h5>
+                        <a href="https://github.com/adityaparsad01/covid19Tracker"><i class="bi-github"></i></a>
+                        <a href="https://twitter.com/adityaparsad01?s=09"><i class="bi bi-twitter"></i></a>
+                        <a href="https://api.covid19india.org/"><i class="bi bi-cloud"></i></a>
                     </div>
                 </div>
           `
